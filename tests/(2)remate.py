@@ -4,13 +4,18 @@ from utilities import Sele
 import time
 import pytest
 #variables imagenes
-casa ='C:/Users/felep/OneDrive/Documentos/GitHub/RematesQA/RematesQA/Imagenes/ImagenCasa.jpeg'
+casa ='C:/Users/felep/OneDrive/Documentos/GitHub/RematesQA/Imagenes/ImagenCasa.jpeg'
+#crear modificador de fechas 
+fechainicio='04022024'
+fechatermino='07022024'
+fvisitaInicio='01022024'
+fvisitaFinal='03022024'
 
 @pytest.fixture
 def page(py: Pylenium):
     return Sele(py).goto()      
 
-def crear_remate(page:Sele ,py:Pylenium):
+def test_crear_remate(page:Sele ,py:Pylenium):
     page.login_administrador()
     page.Click('//*[@id="pageContainer"]/main/section/div/button[1]')
     assert page.VerifyText('//*[@id="pageContainer"]/main/section/div[2]/p',"No hay remates ingresados")
@@ -20,12 +25,12 @@ def crear_remate(page:Sele ,py:Pylenium):
     page.Send('//*[@id="crear-remate-form"]/div[1]/input','RemateDePrueba2')
     #Rellenar fecha de inicio
     #3 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[2]/input','20012024')
+    page.Send('//*[@id="crear-remate-form"]/div[2]/input',fechainicio)
     page.Send('//*[@id="crear-remate-form"]/div[2]/input',Keys.TAB)
     page.Send('//*[@id="crear-remate-form"]/div[2]/input','1400')
     #Rellenar fecha de termino
     #6 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[3]/input','23012024')
+    page.Send('//*[@id="crear-remate-form"]/div[3]/input',fechatermino)
     page.Send('//*[@id="crear-remate-form"]/div[3]/input',Keys.TAB)
     page.Send('//*[@id="crear-remate-form"]/div[3]/input','1400')
     #Telefono del remate
@@ -40,10 +45,10 @@ def crear_remate(page:Sele ,py:Pylenium):
     page.Send('//*[@id="crear-remate-form"]/div[8]/input','1800000')
     #Rellenar inicio de visita
     #dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[9]/div[1]/input','17012024')
+    page.Send('//*[@id="crear-remate-form"]/div[9]/div[1]/input',fvisitaInicio)
     #Rellenar termino de visita
     #2 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[9]/div[2]/input','19012024')
+    page.Send('//*[@id="crear-remate-form"]/div[9]/div[2]/input',fvisitaFinal)
     #Rellenar horario de visita
     page.Send('//*[@id="crear-remate-form"]/div[9]/div[3]/input','12:00 - 18:00')
     #Rellenar descripcion de remate
@@ -80,7 +85,7 @@ def test_modificar_remate(page:Sele):
     time.sleep(5)
 
 
-def eliminar_remate(page:Sele):
+def test_eliminar_remate(page:Sele):
     page.login_administrador()
     #click remtates
     page.Click('//*[@id="pageContainer"]/main/section/div/button[1]')
@@ -95,7 +100,7 @@ def eliminar_remate(page:Sele):
 
     
     
-def crear_remate2(page:Sele ,py:Pylenium):
+def test_crear_remate2(page:Sele ,py:Pylenium):
     page.login_administrador()
     page.Click('//*[@id="pageContainer"]/main/section/div/button[1]')
     assert page.VerifyText('//*[@id="pageContainer"]/main/section/div[2]/p',"No hay remates ingresados")
@@ -105,12 +110,12 @@ def crear_remate2(page:Sele ,py:Pylenium):
     page.Send('//*[@id="crear-remate-form"]/div[1]/input','RemateDePrueba2')
     #Rellenar fecha de inicio
     #3 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[2]/input','22012024')
+    page.Send('//*[@id="crear-remate-form"]/div[2]/input',fechainicio)
     page.Send('//*[@id="crear-remate-form"]/div[2]/input',Keys.TAB)
     page.Send('//*[@id="crear-remate-form"]/div[2]/input','1400')
     #Rellenar fecha de termino
     #6 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[3]/input','25012024')
+    page.Send('//*[@id="crear-remate-form"]/div[3]/input',fechatermino)
     page.Send('//*[@id="crear-remate-form"]/div[3]/input',Keys.TAB)
     page.Send('//*[@id="crear-remate-form"]/div[3]/input','1400')
     #Telefono del remate
@@ -125,10 +130,10 @@ def crear_remate2(page:Sele ,py:Pylenium):
     page.Send('//*[@id="crear-remate-form"]/div[8]/input','1800000')
     #Rellenar inicio de visita
     #dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[9]/div[1]/input','19012024')
+    page.Send('//*[@id="crear-remate-form"]/div[9]/div[1]/input',fvisitaInicio)
     #Rellenar termino de visita
     #2 dias posterior al dia actual
-    page.Send('//*[@id="crear-remate-form"]/div[9]/div[2]/input','22012024')
+    page.Send('//*[@id="crear-remate-form"]/div[9]/div[2]/input',fvisitaFinal)
     #Rellenar horario de visita
     page.Send('//*[@id="crear-remate-form"]/div[9]/div[3]/input','12:00 - 18:00')
     #Rellenar descripcion de remate

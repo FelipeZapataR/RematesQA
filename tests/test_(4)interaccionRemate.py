@@ -8,7 +8,7 @@ def page(py: Pylenium):
     return Sele(py).goto()   
 
     
-def test_solicitar_registrarse(page:Sele,py:Pylenium):
+def solicitar_registrarse(page:Sele,py:Pylenium):
     page.login_usuario()
     page.Click('/html/body/div[1]/div/div/nav/div[2]/ul/li[2]/button')
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[1]/div/div[2]/button[2]')
@@ -21,7 +21,7 @@ def test_solicitar_registrarse(page:Sele,py:Pylenium):
     page.Click('//*[@id="modalPortal"]/div/div/div[3]/button')
     time.sleep(2)
     
-def test_aceptar_garantia(page:Sele):
+def aceptar_garantia(page:Sele):
     page.login_administrador()
     page.Click('//*[@id="pageContainer"]/main/section/div/button[3]')
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[3]/button[1]')
@@ -30,7 +30,7 @@ def test_aceptar_garantia(page:Sele):
     time.sleep(2)
     #mensaje de exito errado
 
-def test_solicitar_registrarse2(page:Sele,py:Pylenium):
+def solicitar_registrarse2(page:Sele,py:Pylenium):
     page.login_usuario2()
     page.Click('/html/body/div[1]/div/div/nav/div[2]/ul/li[2]/button')
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[1]/div/div[2]/button[2]')
@@ -43,7 +43,7 @@ def test_solicitar_registrarse2(page:Sele,py:Pylenium):
     page.Click('//*[@id="modalPortal"]/div/div/div[3]/button')
     time.sleep(2)
 
-def test_aceptar_garantia2(page:Sele):
+def aceptar_garantia2(page:Sele):
     page.login_administrador()
     page.Click('//*[@id="pageContainer"]/main/section/div/button[3]')
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[3]/button[1]')

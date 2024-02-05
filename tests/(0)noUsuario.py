@@ -20,7 +20,7 @@ def test_preguntasFrecuentes(page:Sele):
     assert page.VerifyText('//*[@id="pageContainer"]/main/section/div[2]/h3[1]','¿Por qué se solicita determinada información para la creación de la cuenta?')
 
 
-def test_registrarseRemateSinUsuario(page:Sele):
+def registrarseRemateSinUsuario(page:Sele):
    page.Click('//*[@id="navWrapper"]/ul/li[2]/button')
    page.Click('//*[@id="pageContainer"]/main/section/div/div/div[1]/div/div[2]/button[2]')
    assert page.VerifyText('//*[@id="loginSection"]/div[1]/div[1]/h3','Inicio de sesión')

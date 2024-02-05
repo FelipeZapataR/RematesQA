@@ -48,8 +48,7 @@ class Sele:
         self.py.getx('//*[@id="login-password-form"]/div[2]/button').submit()
         time.sleep(1)
         self.hard_refresh()
-        self.py.getx('//*[@id="RoleSelection"]/div/div/button[1]').click()
-        self.hard_refresh()
+        
             
     def login_usuario(self):
         self.py.getx('//*[@id="userProfileNavButton"]/div/button').click()
