@@ -52,7 +52,7 @@ def aceptar_garantia2(page:Sele):
     time.sleep(2)
     #mensaje de exito errado
     
-def test_ver_articulos(page:Sele):
+def ver_articulos(page:Sele):
     page.login_usuario()
     page.Click('//*[@id="navWrapper"]/ul/li[2]/button')
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[1]/div/div[2]/button[1]')
@@ -69,48 +69,29 @@ def test_pujar_articulos(page:Sele):
     #cerrar card 1
     page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/button')
     time.sleep(1)
-    #cerrar card 2
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/button')
-    time.sleep(1)
     #abrir card 1
     page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/button')
-    time.sleep(1)
-    #abrir card 2
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/button')
     time.sleep(1)
     #pujar el primer articulo por el presion normal
     page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/div/div[1]/div[3]/div[1]/button[1]')
     time.sleep(2)
-    #presionar en editar valor del segundio articulo
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/div/div[1]/div[3]/div[1]/button[2]')
-    #limpiar celda de nuevo valoer
-    page.Clear('//*[@id="monto-puja-form"]/div/input')
-    #ingresar valor de nuevo monto a poujar
-    page.Send('//*[@id="monto-puja-form"]/div/input','9000')
-    #presionar aceptar valor
-    page.Click('//*[@id="modalPortal"]/div/div/div[3]/button')
-    #pujar por segundo articulo por nuevo valor
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/div/div[1]/div[3]/div[1]/button[1]')
-    time.sleep(2)
+   
 
 def test_pujar_articulos2(page:Sele):
     page.login_usuario2()
     page.Click('//*[@id="navWrapper"]/ul/li[2]/button')
     #presionar en conectar al remate
     page.Click('//*[@id="pageContainer"]/main/section/div/div/div[1]/div/div[2]/button[2]')
-    #pujar el primer articulo por el presion normal
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/div/div[1]/div[3]/div[1]/button[1]')
+    #peditar el valor de puja primer articulo 
+    page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/div/div[1]/div[3]/div[1]/button[2]')
     time.sleep(2)
-    #presionar en editar valor del segundio articulo
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/div/div[1]/div[3]/div[1]/button[2]')
-    #limpiar celda de nuevo valoer
-    page.Clear('//*[@id="monto-puja-form"]/div/input')
     #ingresar valor de nuevo monto a poujar
-    page.Send('//*[@id="monto-puja-form"]/div/input','9000')
+    page.Clear('//*[@id="monto-puja-form"]/div/input')
+    page.Send('//*[@id="monto-puja-form"]/div/input','12000')
     #presionar aceptar valor
     page.Click('//*[@id="modalPortal"]/div/div/div[3]/button')
     #pujar por segundo articulo por nuevo valor
-    page.Click('//*[@id="pageContainer"]/main/section/div/div[2]/div/div[1]/div[3]/div[1]/button[1]')
+    page.Click('//*[@id="pageContainer"]/main/section/div/div[1]/div/div[1]/div[3]/div[1]/button[1]')
     time.sleep(2)
 
           
